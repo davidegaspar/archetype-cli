@@ -1,0 +1,41 @@
+{
+  "name": "@davidegaspar/cli-starter",
+  "version": "0.1.0",
+  "description": "CLI Starter",
+  "type": "module",
+  "bin": {
+    "dx": "./index.js"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "lib",
+    "commands"
+  ],
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidegaspar/cli-starter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidegaspar/cli-starter/issues"
+  },
+  "homepage": "https://github.com/davidegaspar/cli-starter#readme",
+  "dependencies": {
+    "boxen": "^7.0.1",
+    "commander": "^9.4.1",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "kleur": "^4.1.5",
+    "ora": "^6.1.2",
+    "prompts": "^2.4.2",
+    "readdirp": "^3.6.0",
+    "winston": "^3.8.2",
+    "yaml": "^2.2.1"
+  }
+}
