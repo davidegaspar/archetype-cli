@@ -1,6 +1,18 @@
-# archetype (cli-starter)
+# archetype-cli
 
-CLI Starter
+Model to create a Command Line Interface in NodeJS.
+
+## Features
+
+- logging
+- commands
+- flags
+- prompts
+
+```sh
+arc info #
+arc git
+```
 
 ## Local development
 

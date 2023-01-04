@@ -1,7 +1,7 @@
 {
-  "name": "@davidegaspar/cli-starter",
+  "name": "@davidegaspar/archetype-cli",
   "version": "0.1.0",
-  "description": "CLI Starter",
+  "description": "Model to create a Command Line Interface",
   "type": "module",
   "bin": {
     "arc": "./index.js"
@@ -18,14 +18,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davidegaspar/cli-starter.git"
+    "url": "git+https://github.com/davidegaspar/archetype-cli.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/davidegaspar/cli-starter/issues"
+    "url": "https://github.com/davidegaspar/archetype-cli/issues"
   },
-  "homepage": "https://github.com/davidegaspar/cli-starter#readme",
+  "homepage": "https://github.com/davidegaspar/archetype-cli#readme",
   "dependencies": {
     "boxen": "^7.0.1",
     "commander": "^9.4.1",
