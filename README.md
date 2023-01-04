@@ -13,7 +13,7 @@ Model to create a Command Line Interface in NodeJS.
 arc -v
 arc -d
 arc -h
-arc info # banners, dotenv, gitMeta, logger,
+arc info # banners, dotenv, gitMeta, logger, spinner (fake request)
 arc demo # template files based on input
 ```
 
