@@ -26,15 +26,6 @@ program.on("option:debug", function () {
   }
 });
 
-// program
-//   .command("setup-app-infra")
-//   .description("Setup base application infrastructure")
-//   .option("-o, --outputDir <directory>", "output directory", ".")
-//   .action((options) => {
-//     console.log(boxen("Setup Application Infrastructure", boxenConfig));
-//     setupAppInfra(options);
-//   });
-
 program
   .command("info")
   .description("Get information about the current application")
@@ -43,8 +34,17 @@ program
     "Force information prompts instead of reading from the current environment"
   )
   .action((options) => {
-    displayBanner("Application Information");
+    displayBanner("Information");
     info(options);
+  });
+
+program
+  .command("demo")
+  .description("Demo")
+  .option("-o, --outputDir <directory>", "output directory", ".")
+  .action((options) => {
+    displayBanner("Demo");
+    demo(options);
   });
 
 program.parse(process.argv);

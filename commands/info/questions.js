@@ -1,4 +1,4 @@
-import { validateSimpleName } from "../../lib/validation.js";
+// import { validateSimpleName } from "../../lib/validation.js";
 
 export default [
   {
@@ -6,13 +6,13 @@ export default [
     name: "boundaryName",
     message: "Boundary name:",
     initial: process.env.BOUNDARY_NAME,
-    validate: validateSimpleName,
+    // validate: validateSimpleName,
   },
   {
     type: "text",
     name: "appName",
     message: "Application name:",
     initial: process.env.APP_NAME,
-    validate: validateSimpleName,
+    // validate: validateSimpleName,
   },
 ];
