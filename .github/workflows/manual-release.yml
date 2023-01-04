@@ -1,0 +1,57 @@
+# name: manual-release
+
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       increment:
+#         description: "Semantic Versioning Increment"
+#         required: true
+#         type: choice
+#         options:
+#           - major
+#           - minor
+#           - patch
+
+# jobs:
+#   manual-release:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: Setup node
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: 16
+#           registry-url: https://registry.npmjs.org/
+#       - name: Release
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+#         run: |
+#           : # expand
+
+#           getCurrentTag(){
+#             echo "$(gh release view --json tagName --jq .tagName)"
+#           }
+#           generateTag(){
+#             local curr_tag=$1
+#             local increment=$2
+#             echo "$(npx semver $curr_tag --increment $increment)"
+#           }
+#           release(){
+#             local tag=$1
+#             gh release create --generate-notes $tag
+#           }
+
+#           INCREMENT=${{ github.event.inputs.increment }}
+#           echo "::debug::INCREMENT=$INCREMENT"
+
+#           if [ $INCREMENT == 'major' ] || [ $INCREMENT == 'minor' ] || [ $INCREMENT == 'patch' ]; then
+#             CURR_TAG=$(getCurrentTag)
+#             NEW_TAG=$(generateTag $CURR_TAG $INCREMENT)
+#             npm version $NEW_TAG --no-git-tag-version
+#             npm publish
+#             release $NEW_TAG
+#             echo "::notice title=Released::https://github.com/${{ github.repository }}/releases/tag/$NEW_TAG"
+#           else
+#             echo "::warning title=Not Released::Commit message does not contain a valid SemVer."
+#           fi

@@ -1,4 +1,4 @@
-# cli-starter
+# archetype (cli-starter)
 
 CLI Starter
 
@@ -7,13 +7,20 @@ CLI Starter
 ```sh
 npm install
 npm link
-dx
+arc
 ```
 
 ## Usage
 
 ```sh
 # install
-# npm install -g dx
-dx
+# npm install -g arc
+arc
 ```
+
+## Next
+
+- name validation
+- save prompts values
+- template rendering
+- display git meta

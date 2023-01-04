@@ -4,16 +4,12 @@
 
 import {} from "./lib/dotenv.js";
 import { Command } from "commander";
-import boxen from "boxen";
 
 import { logger } from "./lib/logger.js";
 import { getJson } from "./lib/package.js";
-import boxenConfig from "./lib/boxenConfig.js";
-// import setupGithubEnvs from "./commands/setupGithubEnvs/index.js";
-// import setupAppInfra from "./commands/setupAppInfra/index.js";
-// import setupAppCode from "./commands/setupAppCode/index.js";
-// import setupCrossAccountRole from "./commands/setupCrossAccountRoles/index.js";
-// import info from "./commands/info/index.js";
+import { displayBanner } from "./lib/banner.js";
+import demo from "./commands/demo/index.js";
+import info from "./commands/info/index.js";
 
 const program = new Command();
 
@@ -22,7 +18,7 @@ program.showHelpAfterError();
 program
   .version(getJson().version, "-v, --version", "output the version")
   .option("-d, --debug", "print debug logs")
-  .description("DX CLI");
+  .description("Archetype CLI");
 
 program.on("option:debug", function () {
   if (this.opts().debug) {
@@ -47,7 +43,7 @@ program
     "Force information prompts instead of reading from the current environment"
   )
   .action((options) => {
-    console.log(boxen("Application Information", boxenConfig));
+    displayBanner("Application Information");
     info(options);
   });
 

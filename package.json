@@ -4,7 +4,7 @@
   "description": "CLI Starter",
   "type": "module",
   "bin": {
-    "dx": "./index.js"
+    "arc": "./index.js"
   },
   "main": "index.js",
   "files": [
