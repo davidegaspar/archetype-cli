@@ -8,8 +8,9 @@ import { Command } from "commander";
 import { logger } from "./lib/logger.js";
 import { getJson } from "./lib/package.js";
 import { displayBanner } from "./lib/banner.js";
-import demo from "./commands/demo/index.js";
-import info from "./commands/info/index.js";
+// import demo from "./commands/demo/index.js";
+// import info from "./commands/info/index.js";
+import gitInfo from "./commands/gitInfo/index.js";
 
 const program = new Command();
 
@@ -27,24 +28,32 @@ program.on("option:debug", function () {
 });
 
 program
-  .command("info")
-  .description("Get information about the current application")
-  .option(
-    "-p, --prompts",
-    "Force information prompts instead of reading from the current environment"
-  )
+  .command("git-info")
+  .description("display git information")
   .action((options) => {
-    displayBanner("Information");
-    info(options);
+    displayBanner("Git Info");
+    gitInfo(options);
   });
 
-program
-  .command("demo")
-  .description("Demo")
-  .option("-o, --outputDir <directory>", "output directory", ".")
-  .action((options) => {
-    displayBanner("Demo");
-    demo(options);
-  });
+// program
+//   .command("info")
+//   .description("Get information about the current application")
+//   .option(
+//     "-p, --prompts",
+//     "Force information prompts instead of reading from the current environment"
+//   )
+//   .action((options) => {
+//     displayBanner("Information");
+//     info(options);
+//   });
+
+// program
+//   .command("demo")
+//   .description("Demo")
+//   .option("-o, --outputDir <directory>", "output directory", ".")
+//   .action((options) => {
+//     displayBanner("Demo");
+//     demo(options);
+//   });
 
 program.parse(process.argv);
