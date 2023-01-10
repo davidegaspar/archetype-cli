@@ -8,13 +8,12 @@ Model to create a Command Line Interface in NodeJS.
 - commands
 - flags
 - prompts
+- spinners
+- saving
 
 ```sh
-arc -v
-arc -d
-arc -h
-arc git-info # dotenv
-arc demo # template files based on input
+arc git-info
+arc template # template files based on input, dotenv, save
 ```
 
 ## Local development
@@ -38,5 +37,5 @@ arc
 - name validation
 - save prompts values
 - template rendering
-- display git meta
 - some basic structure of boundaries/envs/accounts/regions
+- display more git meta?
