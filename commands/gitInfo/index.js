@@ -1,14 +1,7 @@
 import { simpleGit } from "simple-git";
-// import prompts from "prompts";
-// import boxen from "boxen";
-// import kleur from "kleur";
-
-// import questions from "./questions.js";
-
 import { logger } from "../../lib/logger.js";
 import { spinner } from "../../lib/spinner.js";
 import { sleep } from "../../lib/sleep.js";
-// import { onCancel } from "../../lib/prompts.js";
 
 import GitMeta from "../../lib/gitMeta.js";
 
