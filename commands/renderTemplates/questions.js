@@ -15,4 +15,10 @@ export default [
     initial: process.env.APP_NAME,
     validate: validateId,
   },
+  {
+    type: "text",
+    name: "envsDir",
+    message: "Environments directory:",
+    initial: process.env.ENVS_DIR,
+  },
 ];

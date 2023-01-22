@@ -8,6 +8,21 @@ import questions from "./questions.js";
 import { onCancel } from "../../lib/prompts.js";
 // import { spinner } from "../../lib/spinner.js";
 import { generateQueue, render } from "../../lib/rendering.js";
+import { getDirname } from "../../lib/moduleUtils.js";
+import accounts from "../../config/accounts.js";
+
+function generateEnvs(accounts) {
+  const envs = {};
+  for (const account in accounts) {
+    for (const region in accounts[account].regions) {
+      envs[`${account}-${region}`] = {
+        account,
+        region,
+      };
+    }
+  }
+  return envs;
+}
 
 async function renderTemplates(options) {
   logger.debug("renderTemplates");
@@ -25,31 +40,15 @@ async function renderTemplates(options) {
   // logger.info(`repo: ${gitMetadata.repo}`);
   // logger.info(`branch: ${gitMetadata.branch}`);
 
-  logger.debug(import.meta.url);
-
-  // generateRenderQueue has to be agnostic from data (inputs, accounts, envs)
-  // data has to be passed in through here
-  // envs is the loop list that contains all the flattened metadata
-  // the rest is static data
-  let queue = await generateQueue(import.meta.url, {
-    inputs,
-    accounts: {},
-    envs: [],
-  });
+  const templatesDir = `${getDirname(import.meta.url)}/templates`;
+  const envsList = generateEnvs(accounts);
+  const metadata = { inputs, accounts };
+  let queue = await generateQueue(templatesDir, envsList, metadata);
   logger.debug({ queue });
 
-  // const queueFilters = [parseDockerfile, filterHelmFile];
+  render(queue, options.outputDir);
 
-  // renderQueue = queueFilters.reduce(
-  //   (prevResult, fn) => fn(prevResult, renderInputs),
-  //   renderQueue
-  // );
-
-  // logger.debug({ renderQueue });
-
-  // renderFiles(renderQueue, options.outputDir);
-
-  // logger.info("\nSuccessfully rendered all the files!");
+  logger.info("\nSuccessfully rendered all the files!");
 }
 
 export default renderTemplates;
