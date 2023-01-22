@@ -1,0 +1,5 @@
+boundedContextId: <%- inputs.boundedContextId %>
+appName: <%- inputs.appName %>
+accountId: <%- accounts[loopItem.account].id %>
+region:  <%- loopItem.region %>
+secret:  <%- accounts[loopItem.account].regions[loopItem.region].secret %>

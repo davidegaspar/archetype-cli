@@ -1,0 +1,6 @@
+boundedContextId: <%- inputs.boundedContextId %>
+appName: <%- inputs.appName %>
+accounts:
+  <%_ for (const account in accounts) { _%>
+  - <%-accounts[account].id %>
+  <%_ } _%>
