@@ -4,16 +4,17 @@ Model to create a Command Line Interface in NodeJS.
 
 ## Features
 
+- display git metadata
+- ejs rendering based on prompts and metadata
+- prompts with saving
+- nice spinners
 - logging
-- commands
-- flags
-- prompts
-- spinners
-- saving
+
+## Usage
 
 ```sh
-arc git-info
-arc template # template files based on input, dotenv, save
+npm install -g arc
+arc help
 ```
 
 ## Local development
@@ -21,22 +22,11 @@ arc template # template files based on input, dotenv, save
 ```sh
 npm install
 npm link
-arc
-```
-
-## Usage
-
-```sh
-# install
-# npm install -g arc
-arc
+arc help
+arc git-info
 arc -d render-templates -o=out
 ```
 
 ## Next
 
-- template rendering
-- name validation
-- save prompts values
-- some basic structure of boundaries/envs/accounts/regions
 - display more git meta?
