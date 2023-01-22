@@ -6,7 +6,6 @@ import { sleep } from "../../lib/sleep.js";
 import GitMeta from "../../lib/gitMeta.js";
 
 async function gitInfo(options) {
-  logger.debug("gitInfo");
   logger.debug({ options });
 
   const gitMeta = new GitMeta(simpleGit());
